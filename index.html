@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple SPA with React</title>
+    <!-- React and ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      nav {
+        margin-bottom: 20px;
+      }
+      button {
+        margin-right: 10px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // View Components
+      function Home() {
+        return <h2>Welcome to the Home Page</h2>;
+      }
+
+      function About() {
+        return <h2>Learn More About Us</h2>;
+      }
+
+      function Contact() {
+        return <h2>Contact Us Here</h2>;
+      }
+
+      // Navigation Component
+      function Navigation({ onChangePage }) {
+        return (
+          <nav>
+            <button onClick={() => onChangePage('home')}>Home</button>
+            <button onClick={() => onChangePage('about')}>About</button>
+            <button onClick={() => onChangePage('contact')}>Contact</button>
+          </nav>
+        );
+      }
+
+      // Main App Component
+      function MyApp() {
+        const [currentPage, setCurrentPage] = React.useState('home');
+
+        function renderPage() {
+          switch (currentPage) {
+            case 'home':
+              return <Home />;
+            case 'about':
+              return <About />;
+            case 'contact':
+              return <Contact />;
+            default:
+              return <Home />;
+          }
+        }
+
+        return (
+          <div>
+            <h1>My Single Page Application</h1>
+            <Navigation onChangePage={setCurrentPage} />
+            {renderPage()}
+          </div>
+        );
+      }
+
+      // Render the App
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+    </script>
+  </body>
+</html>
