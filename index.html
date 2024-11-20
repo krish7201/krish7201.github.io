@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simple SPA with React and Tailwind.css</title>
   <!-- React and ReactDOM -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -23,71 +24,90 @@
       margin-right: 10px;
       padding: 10px 20px;
     }
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+    }
   </style>
-  
 </head>
 
 <body>
   <!-- where react stuff gets mounted-->
   <div id="root"></div>
 
+  <!-- JS Components -->
+  <script type="text/babel" src="./pages/Home.js"></script>
+  <script type="text/babel" src="./pages/About.js"></script>
+  <script type="text/babel" src="./pages/Contact.js"></script>
+  <script type="text/babel" src="./UIComponents.js"></script>
+  
   <script type="text/babel">
-    // View Components
-    function Home() {
-      return <h1 class>
-        Hello world!
-      </h1>;
-    }
     
-    function About() {
-      return <h2>Learn More About Us</h2>;
-    }
-    
-    function Contact() {
-      return <h2>Contact Us Here</h2>;
-    }
-    
-    // Navigation Component
-    function Navigation({ onChangePage }) {
+    function Header() {
+      const { currentPage, setCurrentPage } = React.useContext(AppContext);
+      
       return (
-      <nav>
-        <button onClick={() => onChangePage('home')}>Home</button>
-        <button onClick={() => onChangePage('about')}>About</button>
-        <button onClick={() => onChangePage('contact')}>Contact</button>
-      </nav>
+      <header>
+        <h1>krish7201</h1>
+      </header>
       );
     }
     
-    // Main App Component
-    function MyApp() {
-      const [currentPage, setCurrentPage] = React.useState('home');
+    function Main() {
+      const { currentPage, setCurrentPage } = React.useContext(AppContext);
       
+      // Helper function for rendering pages
       function renderPage() {
         switch (currentPage) {
           case 'home':
-          return <Home />;
+          return (<Home></Home>);
           case 'about':
-          return <About />;
+          return (<About></About>);
           case 'contact':
-          return <Contact />;
+          return (<Contact></Contact>);
           default:
-          return <Home />;
+          return (<Home></Home>);
         }
       }
       
       return (
-      <div>
-        <h1>My Single Page Application</h1>
-        <Navigation onChangePage={setCurrentPage} />
+      <main>
+        <Navigation onChangePage={setCurrentPage}></Navigation>
         {renderPage()}
-      </div>
+      </main>
       );
     }
     
-    // Render the App
-    const container = document.getElementById('root');
-    const root = ReactDOM.createRoot(container);
-    root.render(<MyApp />);
+    function Footer() {
+      const { currentPage, setCurrentPage } = React.useContext(AppContext);
+      
+      return (
+      <footer>
+      </footer>
+      );
+    }
+    
+    // == Main App Component ==
+    function MyApp() {
+      const [currentPage, setCurrentPage] = React.useState('home');
+      
+      return (
+      <AppContext.Provider value={{ currentPage, setCurrentPage }}>
+        <div className="container-fluid">
+          <Header></Header>
+          <Main></Main>
+          <Footer></Footer>
+        </div>
+      </AppContext.Provider>
+      );
+    }
+    
+    const AppContext = React.createContext();
+    // == Render to DOM ==
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<MyApp></MyApp>);
   </script>
 </body>
 </html>
