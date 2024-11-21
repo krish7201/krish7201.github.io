@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simple SPA with React and Tailwind.css</title>
+  <title>KRISH7201's Website</title>
   <!-- React and ReactDOM -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react-is@18.3.1/umd/react-is.production.min.js"></script>
   <!-- Babel for JSX transformation -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <!-- Bootstrap Stuff -->
@@ -14,20 +15,94 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
   <link href="./styles.css" rel="stylesheet">
   
   <style>
+    html, body, #root, .container-fluid {
+      height: 100%; /* Ensure the body takes the full height of the viewport */
+      margin: 0; /* Remove default margin */
+      padding: 0;
+      
+    }
+    
+    .container-fluid {
+      background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease-in-out infinite;
+      height: 100%;
+    }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
+    .container-fluid {
+      display: flex;
+      flex-direction: row; /* Align children horizontally */
+      height: 100%; /* Make it fill the height of the parent */
+    } 
+    #main-photo {
+      border-radius: 50%;
+      margin-bottom: 10%;
+      width: 5%;
+    }
+    header {
+      position:absolute;
+      height:100%;
+      width: 8rem;
+      background-color: #000;
+    }
+    header h1 {
+      margin-top: 50%;
+    }
     nav {
-      margin-bottom: 20px;
+      flex-direction: column;
+      text-align:center;
+      width: fit-content;
+      padding-top: 250%;
     }
     button {
-      margin-right: 10px;
+      margin-right: 0%;
       padding: 10px 20px;
     }
     h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 0% !important;
       text-align: center;
+      color: white;
     }
-    nav {
+    main {
+      margin-left: 8rem;
+      margin-right: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    #name-title {
+      transform: rotate(90deg);
+      color: transparent; /* Inner text color */
+      -webkit-text-stroke: 0.5px #ffffff; /* Outline color and thickness */
+      width: fit-content;
+      padding-top: 100%;
+      padding-left: 50%;
+      margin-top: 0%;
+      margin-bottom: 0%;
+    }
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
       text-align: center;
     }
   </style>
@@ -36,7 +111,7 @@
 <body>
   <!-- where react stuff gets mounted-->
   <div id="root"></div>
-
+  
   <!-- JS Components -->
   <script type="text/babel" src="./pages/Home.js"></script>
   <script type="text/babel" src="./pages/About.js"></script>
@@ -50,7 +125,8 @@
       
       return (
       <header>
-        <h1>krish7201</h1>
+        <h1 id="name-title">KRISH7201</h1>
+        <Navigation onChangePage={setCurrentPage}></Navigation>
       </header>
       );
     }
@@ -73,14 +149,13 @@
       }
       
       return (
-      <main>
-        <Navigation onChangePage={setCurrentPage}></Navigation>
+      <main class="flex-grow-1">
         {renderPage()}
       </main>
       );
     }
     
-    function Footer() {
+    function Footer() { 
       const { currentPage, setCurrentPage } = React.useContext(AppContext);
       
       return (
@@ -95,7 +170,8 @@
       
       return (
       <AppContext.Provider value={{ currentPage, setCurrentPage }}>
-        <div className="container-fluid">
+        <div class="container-fluid">
+          <div class="overlay"></div>
           <Header></Header>
           <Main></Main>
           <Footer></Footer>
@@ -104,8 +180,8 @@
       );
     }
     
-    const AppContext = React.createContext();
     // == Render to DOM ==
+    const AppContext = React.createContext();
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<MyApp></MyApp>);
   </script>

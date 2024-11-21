@@ -9,7 +9,7 @@ function GeneralButton({ label, onClick }) {
 
 function Navigation({ onChangePage }) {
     return (
-        <nav>
+        <nav class="d-flex">
             <GeneralButton label="Home" onClick={() => onChangePage('home')}></GeneralButton>
             <GeneralButton label="About" onClick={() => onChangePage('about')}></GeneralButton>
             <GeneralButton label="Contact" onClick={() => onChangePage('contact')}></GeneralButton>
