@@ -27,23 +27,52 @@
     }
     
     #bootstrap-overrides .container-fluid {
-      background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-      background-size: 400% 400%;
-      animation: gradient 15s ease-in-out infinite;
-      height: 100%;
+      position: relative;
+      background: 
+        linear-gradient(0deg, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf),
+        linear-gradient(15deg, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070),
+        linear-gradient(30deg, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e),
+        linear-gradient(45deg, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e),
+        linear-gradient(60deg, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87),
+        linear-gradient(75deg, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc),
+        linear-gradient(90deg, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4),
+        linear-gradient(105deg, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf),
+        linear-gradient(120deg, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070),
+        linear-gradient(135deg, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e),
+        linear-gradient(150deg, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e),
+        linear-gradient(165deg, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87),
+        linear-gradient(180deg, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc),
+        linear-gradient(195deg, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4),
+        linear-gradient(210deg, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf),
+        linear-gradient(225deg, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070),
+        linear-gradient(240deg, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e),
+        linear-gradient(255deg, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e),
+        linear-gradient(270deg, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87),
+        linear-gradient(285deg, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc),
+        linear-gradient(300deg, #7e6bbf, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4),
+        linear-gradient(315deg, #cc7070, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf),
+        linear-gradient(330deg, #cc8c5e, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070),
+        linear-gradient(345deg, #ccc66e, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e),
+        linear-gradient(360deg, #82ad87, #6eafcc, #7488c4, #7e6bbf, #cc7070, #cc8c5e, #ccc66e);
+      background-size: 1000000% 1000000%;
+      background-blend-mode: lighten;
+      animation: gradient 24s ease infinite;
+      height: 100% !important;
+      width: 100%;
     }
-    
+        
     @keyframes gradient {
       0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
       }
       50% {
-        background-position: 100% 50%;
+        background-position: 100% 100%;
       }
       100% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
       }
     }
+
     #bootstrap-overrides .container-fluid {
       display: flex;
       flex-direction: row; /* Align children horizontally */
@@ -95,8 +124,10 @@
       bottom: 2.5%;
     }
     #bootstrap-overrides footer p{
-      color:black;
+      color: white;
+      opacity: 0.9;
       font-size: 0.8rem;
+      font-family: sans-serif;
     }
     #bootstrap-overrides footer {
       position: fixed;
@@ -105,6 +136,7 @@
       width: 100%;
       text-align: center;
     }
+
   </style>
 
 </head>
@@ -188,6 +220,6 @@
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<MyApp></MyApp>);
   </script>
-  <script src="./js/particles.min.js"></script>
+  <script src="./js/particles.js"></script>
 </body>
 </html>
