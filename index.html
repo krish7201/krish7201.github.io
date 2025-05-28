@@ -14,8 +14,8 @@
   <!-- Bootstrap Stuff -->
   <script src="./js/bootstrap.bundle.min.js"></script>
   <script src="./js/bootstrap.min.js"></script>
-  <link href="./css/bootstrap.min.css" rel="stylesheet"></link>
-
+  <link href="./css/bootstrap.min.css" rel="stylesheet"></link> 
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
   
   <style>
     html, body, #bootstrap-overrides #root, #bootstrap-overrides .container-fluid {
@@ -124,6 +124,7 @@
       bottom: 2.5%;
     }
     #bootstrap-overrides footer p{
+      height: 0%;
       color: white;
       opacity: 0.9;
       font-size: 0.8rem;
@@ -135,6 +136,16 @@
       bottom: 0;
       width: 100%;
       text-align: center;
+    }
+
+    .bi-github{
+      font-size: xxx-large;
+      color: black;
+      position: absolute;
+      bottom: 2.25%;
+      left: 31.5%;
+      z-index: 2;
+      /* font-weight: bold; */
     }
 
   </style>
@@ -153,8 +164,14 @@
       
       return (
       <header>
+        
         <h1 id="name-title">KRISH7201</h1>
-        <a href="https://github.com/krish7201"><img id="profile-picture"  src="https://github.com/krish7201.png"></img></a>
+        
+        
+        <a href="https://github.com/krish7201">
+          <i class="bi bi-github"></i>
+          <img id="profile-picture"  src="https://github.com/krish7201.png"></img>
+          </a>
       </header>
       );
     }
