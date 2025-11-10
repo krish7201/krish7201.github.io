@@ -147,7 +147,20 @@
       z-index: 2;
       /* font-weight: bold; */
     }
-
+    .nav-menu {
+      padding-bottom: 250%;
+      padding-top: 250%;
+      padding-left: 10%;
+      padding-right: 10%;
+      height: 100%;
+      width: 100%;
+    }
+    .gallery {
+      z-index: 1;
+    }
+    .gallery img {
+      width: 75%;
+    }
   </style>
 
 </head>
@@ -159,6 +172,81 @@
 
   <script type="text/babel">
 
+    function Navigation() {
+      const { currentPage, setCurrentPage } = React.useContext(AppContext);
+      
+      return (
+        <div className="col nav-menu btn-group-vertical" >
+          <button 
+            className={`nav-btn ${currentPage === 'home' ? 'active' : ''} btn btn-secondary`}
+            onClick={() => setCurrentPage('home')}
+          >
+            Home
+          </button>
+          <button 
+            className={`nav-btn ${currentPage === 'gallery' ? 'active' : ''} btn btn-secondary`}
+            onClick={() => setCurrentPage('gallery')}
+          >
+            Art
+          </button>
+        </div>
+      );
+    }
+
+    function Content() {
+      const { currentPage } = React.useContext(AppContext);
+      
+      if (currentPage === 'home') return <Home />;
+      if (currentPage === 'gallery') return <Gallery />;
+      
+      return <Home />;
+    }
+
+    function Home() {
+      return (
+        <h2>Hello world!</h2>
+      );
+    }
+
+    function Gallery() {
+      return (
+        <div className="gallery">
+          <div className="row">
+            <div className="col-sm">
+              <a target="_blank" href="./art/comet.png">
+                <img src="./art/comet.png"/>
+              </a>
+            </div>
+            <div className="col-sm">
+              <a target="_blank" href="./art/intense.png">
+                <img src="./art/intense.png"/>
+              </a>
+            </div>
+            <div className="col-sm">
+              <a target="_blank" href="./art/trapped.png">
+                <img src="./art/trapped.png"/>
+              </a>
+            </div>
+          </div>
+          <br></br>
+          <div className="row">
+              <div className="col-sm">
+                <a target="_blank" href="./art/watercolor.png">
+                  <img src="./art/watercolor.png"/>
+                </a>
+              </div>
+              <div className="col-sm">
+                <a target="_blank" href="./art/woo.png">
+                  <img src="./art/woo.png"/>
+                </a>
+              </div>
+              <div className="col-sm">
+              </div>
+          </div>
+        </div>
+      );
+    }
+
     function Header() {
       const { currentPage, setCurrentPage } = React.useContext(AppContext);
       
@@ -167,11 +255,12 @@
         
         <h1 id="name-title">KRISH7201</h1>
         
+        <Navigation></Navigation>
         
         <a href="https://github.com/krish7201">
           <i class="bi bi-github"></i>
           <img id="profile-picture"  src="https://github.com/krish7201.png"></img>
-          </a>
+        </a>
       </header>
       );
     }
@@ -200,8 +289,8 @@
       
       return (
       <main className="flex-grow-1">
+        <Content></Content>
         <div id="particles-js" style={{ position: 'absolute', width: '100%', height: '98%' }}></div>
-        <h2>Hello world!</h2>
       </main>
       );
     }

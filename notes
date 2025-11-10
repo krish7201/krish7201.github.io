@@ -1,3 +1,9 @@
+To run locally:
+- I used powershell last time for all of this
+- Install nodejs from (https://nodejs.org/en/download/current) (I used chocolatey this last time from a failed install of the prebuilt node.js)
+- install http-server (https://github.com/http-party/http-server) with "npm install --global http-server"
+- run "http-server -p 3000"
+
 problem with NPM, not verified digital signature on NPM.ps1. Use this in PowerShell to bypass the issue: Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
 dev server: http-server -p 3000
 
