@@ -28,3 +28,8 @@ footer {
     cursor: pointer;
     pointer-events: auto;
 }
+@media (max-width: 576px) {
+    .gallery-hint {
+        font-size: 0.7rem;
+    }
+}

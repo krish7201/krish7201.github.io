@@ -73,8 +73,17 @@ function Main() {
 
 function Content() {
     const { currentPage } = useApp();
-    if (currentPage === 'home') return <Home />;
-    if (currentPage === 'gallery') return <Gallery />;
-    if (currentPage === 'music') return <Music />;
-    return <Home />;
+    const [visited, setVisited] = React.useState(() => new Set([currentPage]));
+
+    React.useEffect(() => {
+        setVisited(prev => new Set(prev).add(currentPage));
+    }, [currentPage]);
+
+    return (
+        <div style={{width: "100%"}}>
+            {visited.has('home')    && <div style={{display: currentPage === 'home'    ? 'block' : 'none'}}><Home /></div>}
+            {visited.has('gallery') && <div style={{display: currentPage === 'gallery' ? 'block' : 'none'}}><Gallery /></div>}
+            {visited.has('music')   && <div style={{display: currentPage === 'music'   ? 'block' : 'none'}}><Music /></div>}
+        </div>
+    );
 }

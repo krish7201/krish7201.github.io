@@ -3,9 +3,9 @@ function Header() {
 
     return (
         <header>
-        <h1 className="flex-fill text-center mt-2">
-            krish7201
-        </h1>
+            <h1 className="flex-fill text-center mt-2">
+                krish7201
+            </h1>
             <Navigation></Navigation>
         </header>
     );
