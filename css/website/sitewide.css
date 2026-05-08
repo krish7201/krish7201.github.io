@@ -1,0 +1,30 @@
+* {
+    --bs-nav-tabs-link-active-bg: #181a1b;
+    --bs-nav-tabs-link-active-color: white;
+    --bs-nav-tabs-link-active-border-color: #6a6a6a;
+    --bs-nav-tabs-link-hover-border-color: #6a6a6a;
+    --bs-nav-tabs-border-color: #6a6a6a;
+    --bs-border-color: #6a6a6a;
+    --bs-nav-link-color: #6a6a6a;
+    --bs-link-hover-color: white;
+    user-select: none;
+}
+header {
+    background-color: #181a1b;
+    color: white;
+}
+main {
+    background-color: #181a1b;
+    color: white;
+}
+footer {
+    background-color: #181a1b;
+}
+.gallery-container {
+    pointer-events: none;
+}
+.gallery-container a,
+.gallery-container img {
+    cursor: pointer;
+    pointer-events: auto;
+}

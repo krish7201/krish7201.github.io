@@ -1,0 +1,21 @@
+{
+  "name": "kris7201.github.io",
+  "version": "1.0.0",
+  "description": "<img src=\"https://github.com/user-attachments/assets/06e0afa9-8153-4d81-82fd-f0a1d937e331\" height=\"50%\" width=\"100%\"></img>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krish7201/krish7201.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/krish7201/krish7201.github.io/issues"
+  },
+  "homepage": "https://github.com/krish7201/krish7201.github.io#readme"
+}
