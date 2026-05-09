@@ -35,11 +35,10 @@ function Main() {
     }, []);
 
     return (
-        <main className="flex-grow-1 d-flex align-items-center justify-content-center"
-            style={{position: "relative"}}>
+        <main className="flex-grow-1 d-flex align-items-center justify-content-center" style={{position: "relative"}}>
 
             {/* Particle canvas — fills the main area, sits behind content */}
-            <div id="particles-bg" style={{
+            <div id="particles-bg" aria-hidden="true" style={{
                 position: "absolute",
                 top: 0, left: 0,
                 width: "100%", height: "100%",
@@ -80,10 +79,10 @@ function Content() {
     }, [currentPage]);
 
     return (
-        <div style={{width: "100%"}}>
-            {visited.has('home')    && <div style={{display: currentPage === 'home'    ? 'block' : 'none'}}><Home /></div>}
-            {visited.has('gallery') && <div style={{display: currentPage === 'gallery' ? 'block' : 'none'}}><Gallery /></div>}
-            {visited.has('music')   && <div style={{display: currentPage === 'music'   ? 'block' : 'none'}}><Music /></div>}
-        </div>
-    );
+    <React.Fragment>
+        {visited.has('home')    && <Home    className={currentPage === 'home'    ? '' : 'page-hidden'} />}
+        {visited.has('gallery') && <Gallery className={currentPage === 'gallery' ? '' : 'page-hidden'} />}
+        {visited.has('music')   && <Music   className={currentPage === 'music'   ? '' : 'page-hidden'} />}
+    </React.Fragment>
+);
 }

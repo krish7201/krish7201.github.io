@@ -29,14 +29,14 @@ function GalleryImage({ src, alt, caption }) {
     );
 }
 
-function Gallery() {
+function Gallery({ className }) {
     React.useEffect(() => {
         const lightbox = new Zoomora();
         return () => { lightbox.destroy(); };
     }, []);
 
     return (
-        <div className="gallery-container container py-4" style={{position: "relative", zIndex: 1, width: "100%"}}>
+        <section className={`gallery-container container py-4 ${className || ''}`} style={{position: "relative", zIndex: 1, width: "100%"}}>
             {/* Hint + attribution row */}
             <div className="d-flex justify-content-between align-items-center mb-3 px-1">
                 <small className="text-secondary gallery-hint">
@@ -59,6 +59,6 @@ function Gallery() {
                 <div className="col"><GalleryImage src="./art/intense.png"     alt="intense"     caption="intense"     /></div>
                 <div className="col"><GalleryImage src="./art/eye.png"         alt="eye"         caption="eye"         /></div>
             </div>
-        </div>
+        </section>
     );
 }

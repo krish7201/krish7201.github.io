@@ -14,19 +14,26 @@ header {
     color: white;
 }
 main {
-    background-color: #181a1b;
+    background-color: #0e1011;
     color: white;
 }
 footer {
     background-color: #181a1b;
 }
-.gallery-container {
+.gallery-container, .home-section {
     pointer-events: none;
 }
-.gallery-container a,
-.gallery-container img {
-    cursor: pointer;
-    pointer-events: auto;
+a, img {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+h2 a{
+    color: #6a6a6a !important;
+    text-decoration: none !important;
+    transition: all 0.5s !important;
+}
+h2 a:hover {
+    color: white !important;
 }
 @media (max-width: 576px) {
     .gallery-hint {
@@ -34,5 +41,57 @@ footer {
     }
 }
 .zoomora { 
-    background: #181a1bf0;
+    background: #000000e8;
+}
+.bg-dark {
+    background-color: #181a1b !important;
+}
+
+header h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 3rem;
+    color: #7A7A7A;
+}
+header .name {
+    background: linear-gradient(120deg, #2d235b, #463369, #5f4379, #78548b, #91669b, #ab78ac, #b283ba, #a388c1, #908dc3, #7c92be, #6996b5, #5c99a8);
+    background-size: 1000% 1000%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -o-text-fill-color: transparent;
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    -o-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {background-position: 38% 0%}
+    50% {background-position: 63% 100%}
+    100% {background-position: 38% 0%}
+}
+
+@-moz-keyframes AnimationName {
+    0% {background-position: 38% 0%}
+    50% {background-position: 63% 100%}
+    100% {background-position: 38% 0%}
+}
+
+@-o-keyframes AnimationName {
+    0% {background-position: 38% 0%}
+    50% {background-position: 63% 100%}
+    100% {background-position: 38% 0%}
+}
+
+@keyframes AnimationName {
+    0% {background-position: 38% 0%}
+    50% {background-position: 63% 100%}
+    100% {background-position: 38% 0%}
+}
+
+.page-hidden {
+    display: none !important;
 }

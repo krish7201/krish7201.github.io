@@ -1,8 +1,8 @@
-function Music() {
+function Music({ className }) {
     const [loaded, setLoaded] = React.useState(false);
 
     return (
-        <div style={{position: "relative", width: "100%", maxWidth: "800px", margin: "0 auto", zIndex: 1}}>
+        <section className={`${className || ''}`} style={{position: "relative", width: "100%", maxWidth: "800px", margin: "0 auto", zIndex: 1}}>
 
             {/* Spinner — shown until iframe loads */}
             {!loaded && (
@@ -33,6 +33,6 @@ function Music() {
                 onLoad={() => setLoaded(true)}
             />
 
-        </div>
+        </section>
     );
 }
