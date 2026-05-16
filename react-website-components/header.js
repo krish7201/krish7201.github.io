@@ -8,7 +8,7 @@ function Header() {
                     style={{color: "white", fontSize: "2rem", lineHeight: 1}}>
                     <i className="bi bi-youtube"></i>
                 </a>
-                <h1 className="name text-center mt-2 px-4">
+                <h1 className="name text-center mt-2 px-4" style={{fontWeight: "bold"}}>
                     krish7201
                 </h1>
                 <a href="https://github.com/krish7201" target="_blank" rel="noopener noreferrer"
